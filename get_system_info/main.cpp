@@ -16,7 +16,7 @@ static MEMORYSTATUSEX globalMemoryInfo;
 
 static DWORD processIds[1024];
 static DWORD processCount;
-
+// testing commits
 
 /*
 // pdh stuff
