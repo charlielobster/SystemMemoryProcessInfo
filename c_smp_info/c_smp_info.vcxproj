@@ -22,7 +22,7 @@
     <ProjectGuid>{1BE4DCBC-A065-41BD-A188-F8DE0A558C80}</ProjectGuid>
     <RootNamespace>get_system_info</RootNamespace>
     <WindowsTargetPlatformVersion>10.0.14393.0</WindowsTargetPlatformVersion>
-    <ProjectName>c_system_memory_process_info</ProjectName>
+    <ProjectName>c_smp_info</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
