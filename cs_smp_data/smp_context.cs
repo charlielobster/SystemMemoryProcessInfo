@@ -8,7 +8,7 @@ namespace cs_smp_data
 {
     public class smp_context : DbContext
     {
-        public smp_context() : base("name=ESTARSDBContext")
+        public smp_context() : base("name=smp_context")
         {
         }
 
