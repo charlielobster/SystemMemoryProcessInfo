@@ -1,13 +1,13 @@
 // clr_smp_info.h
-
 #pragma once
-
-using namespace System;
+#include "system_info.h"
 
 namespace clr_smp_info {
 
-	public ref class Class1
+	public ref class c_smp_info
 	{
-		// TODO: Add your methods for this class here.
+		system_info systemInfo;
+		c_smp_info(SYSTEM_INFO info) : systemInfo(info) { 
+		}
 	};
-}
+};

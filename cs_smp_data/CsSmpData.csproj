@@ -20,6 +20,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x64</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -52,11 +53,18 @@
     <Compile Include="Class1.cs" />
     <Compile Include="ProcessMemoryCounter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="smp_context.cs" />
+    <Compile Include="SmpContext.cs" />
+    <Compile Include="SystemInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\clr_smp_info\clr_smp_info.vcxproj">
+      <Project>{c9994ead-1b33-49d0-9326-0f9a13c413ce}</Project>
+      <Name>clr_smp_info</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

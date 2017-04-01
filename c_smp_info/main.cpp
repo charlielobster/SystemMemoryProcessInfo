@@ -20,18 +20,6 @@ static DWORD processCount;
 /*
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 // wrap_native_class_for_mgd_consumption.cpp
 // compile with: /clr /LD
 #include <windows.h>

@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "cs_smp_data", "cs_smp_data\cs_smp_data.csproj", "{752B2F84-2BFE-4909-9BA1-DBA0ADF1E461}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CsSmpData", "cs_smp_data\CsSmpData.csproj", "{752B2F84-2BFE-4909-9BA1-DBA0ADF1E461}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "c_smp_info", "c_smp_info\c_smp_info.vcxproj", "{1BE4DCBC-A065-41BD-A188-F8DE0A558C80}"
 EndProject
