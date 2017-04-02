@@ -5,15 +5,15 @@ namespace CsSmpData
     public class ProcessMemoryCounter
     {
         [Key]
-        public uint ProcessId { get; set; }
-        public ulong PageFaultCount { get; set; }
-        public ulong PeakWorkingSetSize { get; set; }
-        public ulong WorkingSetSize { get; set; }
-        public ulong QuotaPeakPagedPoolUsage { get; set; }
-        public ulong QuotaPagedPoolUsage { get; set; }
-        public ulong QuotaPeakNonPagedPoolUsage { get; set; }
-        public ulong QuotaNonPagedPoolUsage { get; set; }
-        public ulong PagefileUsage { get; set; }
-        public ulong PeakPagefileUsage { get; set; }
+        public int Key { get; set; }
+        public long PageFaultCount { get; set; }
+        public long PeakWorkingSetSize { get; set; }
+        public long WorkingSetSize { get; set; }
+        public long QuotaPeakPagedPoolUsage { get; set; }
+        public long QuotaPagedPoolUsage { get; set; }
+        public long QuotaPeakNonPagedPoolUsage { get; set; }
+        public long QuotaNonPagedPoolUsage { get; set; }
+        public long PagefileUsage { get; set; }
+        public long PeakPagefileUsage { get; set; }
     }
 }

@@ -1,12 +1,14 @@
-﻿namespace CsSmpData
-{
-    using clr_smp_info;
+﻿using System.ComponentModel.DataAnnotations;
+using clr_smp_data;
 
+namespace CsSmpData
+{
     public class SystemInfo
     {
+        public SystemInfo() { }
         public SystemInfo (system_info info)
         {
-            wProcessorArchitecture = info.wProcessorArchitecture;
+            wProcessorArchitecture = (int)info.wProcessorArchitecture;
             dwPageSize = info.dwPageSize;
             lpMinimumApplicationAddress = info.lpMinimumApplicationAddress;
             lpMaximumApplicationAddress = info.lpMaximumApplicationAddress;
@@ -14,18 +16,20 @@
             dwNumberOfProcessors = info.dwNumberOfProcessors;
             dwProcessorType = info.dwProcessorType;
             dwAllocationGranularity = info.dwAllocationGranularity;
-            wProcessorLevel = info.wProcessorLevel;
-            wProcessorRevision = info.wProcessorRevision;
+            wProcessorLevel = (int)info.wProcessorLevel;
+            wProcessorRevision = (int)info.wProcessorRevision;           
         }
-        public uint wProcessorArchitecture { get; set; }
-        public ulong dwPageSize { get; set; }
+        [Key]
+        public int Key { get; set;  }
+        public int wProcessorArchitecture { get; set; }
+        public long dwPageSize { get; set; }
         public long lpMinimumApplicationAddress { get; set; }
         public long lpMaximumApplicationAddress { get; set; }
-        public ulong dwActiveProcessorMask { get; set; }
-        public ulong dwNumberOfProcessors { get; set; }
-        public ulong dwProcessorType { get; set; }
-        public ulong dwAllocationGranularity { get; set; }
-        public uint wProcessorLevel { get; set;  }
-        public uint wProcessorRevision { get; set; }
+        public long dwActiveProcessorMask { get; set; }
+        public long dwNumberOfProcessors { get; set; }
+        public long dwProcessorType { get; set; }
+        public long dwAllocationGranularity { get; set; }
+        public int wProcessorLevel { get; set;  }
+        public int wProcessorRevision { get; set; }
     }
 }
