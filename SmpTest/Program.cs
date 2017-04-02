@@ -22,6 +22,7 @@ namespace CsSmpTest
                 context.SystemInfoes.Add(sysInfo);
                 context.FileTimes.Add(fileTime);
                 context.MemoryStatuses.Add(memStatus);
+
                 context.SaveChanges();
 
                 foreach (var si in context.SystemInfoes)

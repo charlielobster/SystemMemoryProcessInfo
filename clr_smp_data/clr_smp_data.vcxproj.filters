@@ -24,6 +24,21 @@
     <ClInclude Include="resource.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="process_info.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="file_time.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="global_memory_status.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="system_info.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="process_memory_counter.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="clr_smp_data.cpp">

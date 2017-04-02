@@ -134,8 +134,13 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="clr_smp_data.h" />
+    <ClInclude Include="file_time.h" />
+    <ClInclude Include="global_memory_status.h" />
+    <ClInclude Include="process_info.h" />
+    <ClInclude Include="process_memory_counter.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="Stdafx.h" />
+    <ClInclude Include="system_info.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AssemblyInfo.cpp" />
