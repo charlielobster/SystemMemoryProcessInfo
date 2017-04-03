@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using clr_smp_data;
 
 namespace CsSmpData
@@ -6,20 +7,26 @@ namespace CsSmpData
     public class GlobalMemoryStatus
     {
         public GlobalMemoryStatus() { }
-        public GlobalMemoryStatus(global_memory_status info)
+        public GlobalMemoryStatus(global_memory_status status)
         {
-            dwLength = info.dwLength;
-            dwMemoryLoad = info.dwMemoryLoad;
-            ullTotalPhys = info.ullTotalPhys;
-            ullAvailPhys = info.ullAvailPhys;
-            ullTotalPageFile = info.ullTotalPageFile;
-            ullAvailPageFile = info.ullAvailPageFile;
-            ullTotalVirtual = info.ullTotalVirtual;
-            ullAvailVirtual = info.ullAvailVirtual;
-            ullAvailExtendedVirtual = info.ullAvailExtendedVirtual;
+            dwLength = status.dwLength;
+            dwMemoryLoad = status.dwMemoryLoad;
+            ullTotalPhys = status.ullTotalPhys;
+            ullAvailPhys = status.ullAvailPhys;
+            ullTotalPageFile = status.ullTotalPageFile;
+            ullAvailPageFile = status.ullAvailPageFile;
+            ullTotalVirtual = status.ullTotalVirtual;
+            ullAvailVirtual = status.ullAvailVirtual;
+            ullAvailExtendedVirtual = status.ullAvailExtendedVirtual;
         }
+
         [Key]
-        public int Key { get; set; }
+        public long Key { get; set; }
+
+        [ForeignKey("SystemInfo")]
+        public long SystemInfo_Key { get; set; }
+        public virtual SystemInfo SystemInfo { get; set; }
+
         public long dwLength { get; set; }
         public long dwMemoryLoad { get; set; }
         public long ullTotalPhys { get; set; }

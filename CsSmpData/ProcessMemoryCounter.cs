@@ -5,7 +5,7 @@ namespace CsSmpData
     public class ProcessMemoryCounter
     {
         [Key]
-        public int Key { get; set; }
+        public long Key { get; set; }
         public long PageFaultCount { get; set; }
         public long PeakWorkingSetSize { get; set; }
         public long WorkingSetSize { get; set; }

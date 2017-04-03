@@ -3,7 +3,8 @@
 namespace clr_smp_data {
 	public ref class process_memory_counter {
 	public:
-		process_memory_counter() { }
+		process_memory_counter(DWORD processId) { }
+		long Key;
 		long PageFaultCount;
 		long PeakWorkingSetSize;
 		long WorkingSetSize;

@@ -10,8 +10,8 @@ namespace CsSmpData
 
         public virtual DbSet<FileTime> FileTimes { get; set; }
         public virtual DbSet<SystemInfo> SystemInfoes { get; set; }
-        public virtual DbSet<GlobalMemoryStatus> MemoryStatuses { get; set; }
-        public virtual DbSet<ProcessMemoryCounter> MemoryCounters { get; set; }
+        public virtual DbSet<GlobalMemoryStatus> GlobalMemoryStatuses { get; set; }
+        public virtual DbSet<ProcessMemoryCounter> ProcessMemoryCounters { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

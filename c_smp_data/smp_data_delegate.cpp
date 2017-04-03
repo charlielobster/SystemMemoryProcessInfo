@@ -1,123 +1,39 @@
-#include <windows.h>
+#include "smp_data_delegate.h"
+
 #include <stdio.h>
 #include <psapi.h>
 #include <d3d12.h>
 #include <tchar.h>
 #include <pdh.h>
 
-// system info container
-static SYSTEM_INFO sysInfo;
+using namespace c_smp_data;
 
-// current system time as file time
-static FILETIME fileTime;
-
-// global memory info container
-static MEMORYSTATUSEX globalMemoryInfo;
-
-static DWORD processIds[1024];
-static DWORD processCount;
-
-/*
-
-
-// wrap_native_class_for_mgd_consumption.cpp
-// compile with: /clr /LD
-#include <windows.h>
-#include <vcclr.h>
-#using <System.dll>
-
-using namespace System;
-
-class UnmanagedClass {
-public:
-LPCWSTR GetPropertyA() { return 0; }
-void MethodB( LPCWSTR ) {}
-};
-
-public ref class ManagedClass {
-public:
-// Allocate the native object on the C++ Heap via a constructor
-ManagedClass() : m_Impl( new UnmanagedClass ) {}
-
-// Deallocate the native object on a destructor
-~ManagedClass() {
-delete m_Impl;
-}
-
-protected:
-// Deallocate the native object on the finalizer just in case no destructor is called
-!ManagedClass() {
-delete m_Impl;
-}
-
-public:
-property String ^  get_PropertyA {
-String ^ get() {
-return gcnew String( m_Impl->GetPropertyA());
-}
-}
-
-void MethodB( String ^ theString ) {
-pin_ptr<const WCHAR> str = PtrToStringChars(theString);
-m_Impl->MethodB(str);
-}
-
-private:
-UnmanagedClass * m_Impl;
-};
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// pdh stuff
-static PDH_HQUERY cpuQuery;
-static PDH_HCOUNTER cpuTotal;
-
-void initPdhStuff() 
+smp_data_delegate::smp_data_delegate() 
 {
-	PdhOpenQuery(NULL, NULL, &cpuQuery);
-	PdhAddCounter(cpuQuery, "\\Processor(_Total)\\% Processor Time", NULL, &cpuTotal);
-	PdhCollectQueryData(cpuQuery);
+	GetAndPrintSystemTimeAsFileTime();
+
+	// Print System Info	
+	GetAndPrintSystemInfo();
+
+	// Print Global Memory Info
+	if (!GetAndPrintGlobalMemoryInfo()) {
+		printf("GET AND PRINT GLOBAL MEMORY INFO FAILURE");
+	}
+
+	GetAndPrintProcessInfo();
 }
 
-double getPdhStuffCurrentValue() 
-{
-	PDH_FMT_COUNTERVALUE counterVal;
-	PdhCollectQueryData(cpuQuery);
-	PdhGetFormattedCounterValue(cpuTotal, PDH_FMT_DOUBLE, NULL, &counterVal);
-	return counterVal.doubleValue;
-}
-*/
-
-void GetAndPrintSystemTimeAsFileTime()
+void smp_data_delegate::GetAndPrintSystemTimeAsFileTime()
 {
 	GetSystemTimeAsFileTime(&fileTime);
 	printf("\n	\
 		System As File Time: Low: %lu\t\tHigh: %lu\n \
-		\n", 
-		fileTime.dwLowDateTime, 
+		\n",
+		fileTime.dwLowDateTime,
 		fileTime.dwHighDateTime);
 }
 
-void GetAndPrintProcessTimes(HANDLE hProcess)
+void smp_data_delegate::GetAndPrintProcessTimes(HANDLE hProcess)
 {
 	FILETIME creationTime, exitTime, kernelTime, userTime;
 	GetProcessTimes(hProcess, &creationTime, &exitTime, &kernelTime, &userTime);
@@ -129,7 +45,7 @@ void GetAndPrintProcessTimes(HANDLE hProcess)
 		User Time             Low: %lu\t\tHigh: %lu\n \
 		\n",
 		hProcess,
-		creationTime.dwLowDateTime, 
+		creationTime.dwLowDateTime,
 		creationTime.dwHighDateTime,
 		exitTime.dwLowDateTime,
 		exitTime.dwHighDateTime,
@@ -139,7 +55,7 @@ void GetAndPrintProcessTimes(HANDLE hProcess)
 		userTime.dwHighDateTime);
 }
 
-void GetAndPrintProcessMemoryInfo(HANDLE hProcess)
+void smp_data_delegate::GetAndPrintProcessMemoryInfo(HANDLE hProcess)
 {
 	PROCESS_MEMORY_COUNTERS pmc;
 	if (GetProcessMemoryInfo(hProcess, &pmc, sizeof(pmc))) {
@@ -173,7 +89,7 @@ void GetAndPrintProcessMemoryInfo(HANDLE hProcess)
 	}
 }
 
-void ProcessInfo(DWORD processID)
+void smp_data_delegate::ProcessInfo(DWORD processID)
 {
 	HANDLE hProcess;
 
@@ -197,7 +113,7 @@ void ProcessInfo(DWORD processID)
 	CloseHandle(hProcess);
 }
 
-void GetAndPrintSystemInfo() 
+void smp_data_delegate::GetAndPrintSystemInfo()
 {
 	GetSystemInfo(&sysInfo);
 	printf("\n \
@@ -228,7 +144,7 @@ void GetAndPrintSystemInfo()
 	);
 }
 
-bool GetAndPrintGlobalMemoryInfo()
+bool smp_data_delegate::GetAndPrintGlobalMemoryInfo()
 {
 	globalMemoryInfo.dwLength = sizeof(MEMORYSTATUSEX);
 	if (GlobalMemoryStatusEx(&globalMemoryInfo)) {
@@ -259,7 +175,7 @@ bool GetAndPrintGlobalMemoryInfo()
 	return false;
 }
 
-void GetAndPrintProcessInfo()
+void smp_data_delegate::GetAndPrintProcessInfo()
 {
 	DWORD processBufferSize = 0;
 	printf("\n\t\t\tProcess Info:\n");
@@ -276,25 +192,3 @@ void GetAndPrintProcessInfo()
 		}
 	}
 }
-
-int main(void)
-{	
-	// Get the System Time as File Time
-	GetAndPrintSystemTimeAsFileTime();
-
-	// Print System Info	
-	GetAndPrintSystemInfo();
-
-	// Print Global Memory Info
-	if (!GetAndPrintGlobalMemoryInfo()) {
-		printf("GET AND PRINT GLOBAL MEMORY INFO FAILURE");
-		return 1;
-	}
-
-	//	initPdhStuff();
-	GetAndPrintProcessInfo();
-
-	return 0;
-}
-
-

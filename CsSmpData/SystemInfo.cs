@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using clr_smp_data;
 
 namespace CsSmpData
@@ -19,8 +20,18 @@ namespace CsSmpData
             wProcessorLevel = (int)info.wProcessorLevel;
             wProcessorRevision = (int)info.wProcessorRevision;           
         }
+
         [Key]
-        public int Key { get; set;  }
+        public long Key { get; set;  }
+
+        [ForeignKey("SystemTime")]
+        public long SystemTime_Key { get; set; }
+        public virtual FileTime SystemTime { get; set; }
+
+        [ForeignKey("GlobalMemoryStatus")]
+        public long GlobalMemoryStatus_Key { get; set; }
+        public virtual GlobalMemoryStatus GlobalMemoryStatus { get; set; }
+
         public int wProcessorArchitecture { get; set; }
         public long dwPageSize { get; set; }
         public long lpMinimumApplicationAddress { get; set; }

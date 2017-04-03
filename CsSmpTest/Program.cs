@@ -1,6 +1,7 @@
 ﻿using CsSmpData;
 using clr_smp_data;
 using System;
+using System.Linq;
 
 namespace CsSmpTest
 {
@@ -21,14 +22,12 @@ namespace CsSmpTest
 
                 context.SystemInfoes.Add(sysInfo);
                 context.FileTimes.Add(fileTime);
-                context.MemoryStatuses.Add(memStatus);
+                context.GlobalMemoryStatuses.Add(memStatus);
 
                 context.SaveChanges();
 
-                foreach (var si in context.SystemInfoes)
-                {
-                    Console.WriteLine(si.Key);
-                }
+                var systemInfo = context.SystemInfoes.FirstOrDefault();
+                var globalMemStatus = context.GlobalMemoryStatuses.FirstOrDefault();
             }
 
             Console.WriteLine("Press any key to exit...");
