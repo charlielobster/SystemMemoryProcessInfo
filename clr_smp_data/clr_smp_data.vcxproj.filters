@@ -15,16 +15,10 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="clr_smp_data.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Stdafx.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="resource.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="process_info.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="file_time.h">
@@ -39,15 +33,21 @@
     <ClInclude Include="process_memory_counter.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="clr_process_info.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="clr_smp_delegate.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="clr_smp_data.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="AssemblyInfo.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Stdafx.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="clr_smp_delegate.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

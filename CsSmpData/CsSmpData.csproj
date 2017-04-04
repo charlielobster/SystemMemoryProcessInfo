@@ -54,11 +54,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="FileTime.cs" />
-    <Compile Include="GlobalMemoryStatus.cs" />
+    <Compile Include="ProcessInfo.cs" />
     <Compile Include="ProcessMemoryCounter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SmpContext.cs" />
-    <Compile Include="SystemInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

@@ -12,8 +12,8 @@ namespace CsSmpData
             dwHighDateTime = time.dwHighDateTime;
         }
         [Key]
-        public long Key { get; set; }
-        public long dwLowDateTime { get; set; }
-        public long dwHighDateTime { get; set; }
+        public ulong Key { get; set; }
+        public ulong dwLowDateTime { get; set; }
+        public ulong dwHighDateTime { get; set; }
     }
 }

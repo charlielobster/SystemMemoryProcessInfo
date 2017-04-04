@@ -1,19 +1,20 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace CsSmpData
 {
     public class ProcessMemoryCounter
     {
         [Key]
-        public long Key { get; set; }
-        public long PageFaultCount { get; set; }
-        public long PeakWorkingSetSize { get; set; }
-        public long WorkingSetSize { get; set; }
-        public long QuotaPeakPagedPoolUsage { get; set; }
-        public long QuotaPagedPoolUsage { get; set; }
-        public long QuotaPeakNonPagedPoolUsage { get; set; }
-        public long QuotaNonPagedPoolUsage { get; set; }
-        public long PagefileUsage { get; set; }
-        public long PeakPagefileUsage { get; set; }
+        public UInt64 Key { get; set; }
+        public UInt64 PageFaultCount { get; set; }
+        public UInt64 PeakWorkingSetSize { get; set; }
+        public UInt64 WorkingSetSize { get; set; }
+        public UInt64 QuotaPeakPagedPoolUsage { get; set; }
+        public UInt64 QuotaPagedPoolUsage { get; set; }
+        public UInt64 QuotaPeakNonPagedPoolUsage { get; set; }
+        public UInt64 QuotaNonPagedPoolUsage { get; set; }
+        public UInt64 PagefileUsage { get; set; }
+        public UInt64 PeakPagefileUsage { get; set; }
     }
 }

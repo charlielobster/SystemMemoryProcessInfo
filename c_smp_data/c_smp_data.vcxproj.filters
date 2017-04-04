@@ -18,12 +18,15 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="smp_data_delegate.h">
+    <ClInclude Include="process_info.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="c_smp_delegate.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="smp_data_delegate.cpp">
+    <ClCompile Include="c_smp_delegate.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

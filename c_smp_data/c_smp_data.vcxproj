@@ -130,10 +130,11 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="smp_data_delegate.h" />
+    <ClInclude Include="process_info.h" />
+    <ClInclude Include="c_smp_delegate.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="smp_data_delegate.cpp" />
+    <ClCompile Include="c_smp_delegate.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
