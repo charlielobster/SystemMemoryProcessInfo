@@ -1,19 +1,18 @@
 #pragma once
 #include <windows.h>
+using namespace System;
 
-namespace clr_smp_data {
-	public ref class file_time {
+namespace clr_smp_data 
+{
+	public ref class file_time 
+	{
 	public:
-		void clone(FILETIME f) {
+		file_time(FILETIME f) 
+		{
 			dwLowDateTime = f.dwLowDateTime;
 			dwHighDateTime = f.dwHighDateTime;
-		}
-		file_time() { }
-		file_time(FILETIME f) : 
-			dwLowDateTime(f.dwLowDateTime), 
-			dwHighDateTime(f.dwHighDateTime) 
-		{}
-		unsigned __int64 dwLowDateTime;
-		unsigned __int64 dwHighDateTime;
+		}	
+		property unsigned __int64 dwLowDateTime;
+		property unsigned __int64 dwHighDateTime;
 	};
 };

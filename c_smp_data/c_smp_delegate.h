@@ -14,13 +14,14 @@ namespace c_smp_data
 		FILETIME getSystemTime();
 		MEMORYSTATUSEX getGlobalMemoryStatus();
 		process_info *getProcessInfos(DWORD &count);
+		DWORD getInfoCount() { return infoCount; }
 
 	private:
 		FILETIME systemTime;
 		SYSTEM_INFO sysInfo;
 		MEMORYSTATUSEX globalMemoryStatus;
 		DWORD processIds[1024];
-		DWORD processCount;
+		DWORD processCount, infoCount;
 		process_info *process_infos;
 	};
 };

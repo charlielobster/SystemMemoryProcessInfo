@@ -1,28 +1,31 @@
 #pragma once
 #include <psapi.h>
 
-namespace clr_smp_data {
-	public ref class process_memory_counter {
+namespace clr_smp_data 
+{
+	public ref class process_memory_counter 
+	{
 	public:
-		process_memory_counter(PROCESS_MEMORY_COUNTERS p) : 
-			PageFaultCount(p.PageFaultCount),
-			PeakWorkingSetSize(p.PeakWorkingSetSize),
-			WorkingSetSize(p.WorkingSetSize),
-			QuotaPeakPagedPoolUsage(p.QuotaPeakPagedPoolUsage),
-			QuotaPagedPoolUsage(p.QuotaPagedPoolUsage),
-			QuotaPeakNonPagedPoolUsage(p.QuotaPeakNonPagedPoolUsage),
-			QuotaNonPagedPoolUsage(p.QuotaNonPagedPoolUsage),
-			PagefileUsage(p.PagefileUsage),
-			PeakPagefileUsage(p.PeakPagefileUsage) 
-		{ }
-		unsigned __int64 PageFaultCount;
-		unsigned __int64 PeakWorkingSetSize;
-		unsigned __int64 WorkingSetSize;
-		unsigned __int64 QuotaPeakPagedPoolUsage;
-		unsigned __int64 QuotaPagedPoolUsage;
-		unsigned __int64 QuotaPeakNonPagedPoolUsage;
-		unsigned __int64 QuotaNonPagedPoolUsage;
-		unsigned __int64 PagefileUsage;
-		unsigned __int64 PeakPagefileUsage;
+		process_memory_counter(PROCESS_MEMORY_COUNTERS pmc)
+		{
+			PageFaultCount = pmc.PageFaultCount;
+			PeakWorkingSetSize = pmc.PeakWorkingSetSize;
+			WorkingSetSize = pmc.WorkingSetSize;
+			QuotaPeakPagedPoolUsage = pmc.QuotaPeakPagedPoolUsage;
+			QuotaPagedPoolUsage = pmc.QuotaPagedPoolUsage;
+			QuotaPeakNonPagedPoolUsage = pmc.QuotaPeakNonPagedPoolUsage;
+			QuotaNonPagedPoolUsage = pmc.QuotaNonPagedPoolUsage;
+			PagefileUsage = pmc.PagefileUsage;
+			PeakPagefileUsage = pmc.PeakPagefileUsage; 
+		}
+		property unsigned __int64 PageFaultCount;
+		property unsigned __int64 PeakWorkingSetSize;
+		property unsigned __int64 WorkingSetSize;
+		property unsigned __int64 QuotaPeakPagedPoolUsage;
+		property unsigned __int64 QuotaPagedPoolUsage;
+		property unsigned __int64 QuotaPeakNonPagedPoolUsage;
+		property unsigned __int64 QuotaNonPagedPoolUsage;
+		property unsigned __int64 PagefileUsage;
+		property unsigned __int64 PeakPagefileUsage;
 	};
 };

@@ -1,10 +1,13 @@
 #pragma once
 #include <windows.h>
 
-namespace clr_smp_data {
-	public ref class global_memory_status {
+namespace clr_smp_data 
+{
+	public ref class global_memory_status 
+	{
 	public:
-		void clone(MEMORYSTATUSEX status) {
+		global_memory_status(MEMORYSTATUSEX status) 
+		{
 			dwLength = status.dwLength;
 			dwMemoryLoad = status.dwMemoryLoad;
 			ullTotalPhys = status.ullTotalPhys;
@@ -15,14 +18,14 @@ namespace clr_smp_data {
 			ullAvailVirtual = status.ullAvailVirtual;
 			ullAvailExtendedVirtual = status.ullAvailExtendedVirtual;
 		}
-		unsigned __int64 dwLength;
-		unsigned __int64 dwMemoryLoad;
-		unsigned __int64 ullTotalPhys;
-		unsigned __int64 ullAvailPhys;
-		unsigned __int64 ullTotalPageFile;
-		unsigned __int64 ullAvailPageFile;
-		unsigned __int64 ullTotalVirtual;
-		unsigned __int64 ullAvailVirtual;
-		unsigned __int64 ullAvailExtendedVirtual;
+		property unsigned __int64 dwLength;
+		property unsigned __int64 dwMemoryLoad;
+		property unsigned __int64 ullTotalPhys;
+		property unsigned __int64 ullAvailPhys;
+		property unsigned __int64 ullTotalPageFile;
+		property unsigned __int64 ullAvailPageFile;
+		property unsigned __int64 ullTotalVirtual;
+		property unsigned __int64 ullAvailVirtual;
+		property unsigned __int64 ullAvailExtendedVirtual;
 	};
 };

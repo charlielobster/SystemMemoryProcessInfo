@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using clr_smp_data;
+using System;
 
 namespace CsSmpData
 {
@@ -8,12 +9,12 @@ namespace CsSmpData
         public FileTime() { }
         public FileTime(file_time time)
         {
-            dwLowDateTime = time.dwLowDateTime;
-            dwHighDateTime = time.dwHighDateTime;
+            LowDateTime = (Int64)time.dwLowDateTime;
+            HighDateTime = (Int64)time.dwHighDateTime;
         }
         [Key]
-        public ulong Key { get; set; }
-        public ulong dwLowDateTime { get; set; }
-        public ulong dwHighDateTime { get; set; }
+        public int Key { get; set; }
+        public Int64 LowDateTime { get; set; }
+        public Int64 HighDateTime { get; set; }
     }
 }

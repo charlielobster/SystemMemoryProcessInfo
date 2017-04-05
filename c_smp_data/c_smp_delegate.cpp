@@ -38,7 +38,7 @@ process_info *c_smp_delegate::getProcessInfos(DWORD &count)
 		processCount = processBufferSize / sizeof(DWORD);
 		process_infos = (process_info *)malloc(processCount * sizeof(process_info));
 
-		for (unsigned int i = 0; i < processCount; i++) {	
+		for (unsigned int i = infoCount = 0; i < processCount; i++) {	
 			DWORD processId = processIds[i];
 			hProcess = OpenProcess(PROCESS_QUERY_INFORMATION | PROCESS_VM_READ, FALSE, processId);
 			if (hProcess != NULL) {
@@ -59,6 +59,7 @@ process_info *c_smp_delegate::getProcessInfos(DWORD &count)
 					sizeof((process_infos[i]).processMemoryCounter));
 
 				CloseHandle(hProcess);
+				infoCount++;
 			}
 			else {
 				(process_infos[i]).processId = 0;
