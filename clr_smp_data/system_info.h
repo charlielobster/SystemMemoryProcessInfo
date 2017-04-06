@@ -8,6 +8,7 @@ namespace clr_smp_data
 	public:
 		system_info(SYSTEM_INFO info) 
 		{
+			dwOemId = info.dwOemId;
 			wProcessorArchitecture = info.wProcessorArchitecture;
 			dwPageSize = info.dwPageSize;
 			lpMinimumApplicationAddress = (unsigned __int64)info.lpMinimumApplicationAddress;
@@ -19,6 +20,7 @@ namespace clr_smp_data
 			wProcessorLevel = info.wProcessorLevel;
 			wProcessorRevision = info.wProcessorRevision;
 		}
+		property unsigned __int64 dwOemId;
 		property unsigned int wProcessorArchitecture;
 		property unsigned __int64 dwPageSize;
 		property unsigned __int64 lpMinimumApplicationAddress;

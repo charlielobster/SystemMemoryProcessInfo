@@ -43,7 +43,7 @@ int main(void)
 		sysInfo.wProcessorRevision
 	);
 
-	MEMORYSTATUSEX globalMemoryInfo = delegate.getGlobalMemoryStatus();
+	MEMORYSTATUSEX globalMemoryStatus = delegate.getGlobalMemoryStatus();
 	printf("\n \
 			Global Memory Info:\n \
 			Length:                     %lu\n \
@@ -56,15 +56,15 @@ int main(void)
 			Available Virtual:          %llu\n \
 			Available Extended Virtual: %llu\n \
 			\n",
-		globalMemoryInfo.dwLength,
-		globalMemoryInfo.dwMemoryLoad,
-		globalMemoryInfo.ullTotalPhys,
-		globalMemoryInfo.ullAvailPhys,
-		globalMemoryInfo.ullTotalPageFile,
-		globalMemoryInfo.ullAvailPageFile,
-		globalMemoryInfo.ullTotalVirtual,
-		globalMemoryInfo.ullAvailVirtual,
-		globalMemoryInfo.ullAvailExtendedVirtual
+		globalMemoryStatus.dwLength,
+		globalMemoryStatus.dwMemoryLoad,
+		globalMemoryStatus.ullTotalPhys,
+		globalMemoryStatus.ullAvailPhys,
+		globalMemoryStatus.ullTotalPageFile,
+		globalMemoryStatus.ullAvailPageFile,
+		globalMemoryStatus.ullTotalVirtual,
+		globalMemoryStatus.ullAvailVirtual,
+		globalMemoryStatus.ullAvailExtendedVirtual
 	);
 
 	DWORD processCount; 

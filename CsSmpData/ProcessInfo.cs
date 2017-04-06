@@ -8,41 +8,26 @@ namespace CsSmpData
     public class ProcessInfo
     {
         public ProcessInfo() { }
-        public ProcessInfo(clr_process_info processInfo) 
+        public ProcessInfo(clr_process_info processInfo)  
         {
-           //           Path = processInfo.path;
-  /*          ProcessId = processInfo.processId;
+            ProcessId = (Int64)processInfo.processId;
+            Path = processInfo.path;
             CreationTime = new FileTime(processInfo.creationTime);
             ExitTime = new FileTime(processInfo.exitTime);
             KernelTime = new FileTime(processInfo.kernelTime);
             UserTime = new FileTime(processInfo.userTime);
-            ProcessMemoryCounter = new ProcessMemoryCounter(processInfo.counter); 
-   */     }
+            ProcessMemoryCounter = new ProcessMemoryCounter(processInfo.processMemoryCounter);
+        }
         [Key]
-        public int Key { get; set; }
+        public int Id { get; set; }
+        public UInt64 uProcessId { get { return (UInt64)ProcessId; } }
         public Int64 ProcessId { get; set; }
-
-//        public String Path { get; set; }
-
-    //    [ForeignKey("CreationTime")]
-    //    public int CreationTime_Key { get; set; }
+        [MaxLength(260)]
+        public String Path { get; set; }
         public virtual FileTime CreationTime { get; set; }
-
-   //     [ForeignKey("ExitTime")]
-  //      public int ExitTime_Key { get; set; }
         public virtual FileTime ExitTime { get; set; }
-
- //       [ForeignKey("KernelTime")]
-//        public int KernelTime_Key { get; set; }
         public virtual FileTime KernelTime { get; set; }
-
- //       [ForeignKey("UserTime")]
- //       public int UserTime_Key { get; set; }
         public virtual FileTime UserTime { get; set; }
-
-//        [ForeignKey("ProcessMemoryCounter")]
-//        public int ProcessMemoryCounter_Key { get; set; }
         public virtual ProcessMemoryCounter ProcessMemoryCounter { get; set; }
-
     }
 }

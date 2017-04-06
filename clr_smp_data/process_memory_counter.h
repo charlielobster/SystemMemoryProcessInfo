@@ -6,17 +6,17 @@ namespace clr_smp_data
 	public ref class process_memory_counter 
 	{
 	public:
-		process_memory_counter(PROCESS_MEMORY_COUNTERS pmc)
+		process_memory_counter(PROCESS_MEMORY_COUNTERS counter)
 		{
-			PageFaultCount = pmc.PageFaultCount;
-			PeakWorkingSetSize = pmc.PeakWorkingSetSize;
-			WorkingSetSize = pmc.WorkingSetSize;
-			QuotaPeakPagedPoolUsage = pmc.QuotaPeakPagedPoolUsage;
-			QuotaPagedPoolUsage = pmc.QuotaPagedPoolUsage;
-			QuotaPeakNonPagedPoolUsage = pmc.QuotaPeakNonPagedPoolUsage;
-			QuotaNonPagedPoolUsage = pmc.QuotaNonPagedPoolUsage;
-			PagefileUsage = pmc.PagefileUsage;
-			PeakPagefileUsage = pmc.PeakPagefileUsage; 
+			PageFaultCount = counter.PageFaultCount;
+			PeakWorkingSetSize = counter.PeakWorkingSetSize;
+			WorkingSetSize = counter.WorkingSetSize;
+			QuotaPeakPagedPoolUsage = counter.QuotaPeakPagedPoolUsage;
+			QuotaPagedPoolUsage = counter.QuotaPagedPoolUsage;
+			QuotaPeakNonPagedPoolUsage = counter.QuotaPeakNonPagedPoolUsage;
+			QuotaNonPagedPoolUsage = counter.QuotaNonPagedPoolUsage;
+			PagefileUsage = counter.PagefileUsage;
+			PeakPagefileUsage = counter.PeakPagefileUsage; 
 		}
 		property unsigned __int64 PageFaultCount;
 		property unsigned __int64 PeakWorkingSetSize;

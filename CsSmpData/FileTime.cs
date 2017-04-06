@@ -13,7 +13,9 @@ namespace CsSmpData
             HighDateTime = (Int64)time.dwHighDateTime;
         }
         [Key]
-        public int Key { get; set; }
+        public int Id { get; set; }
+        public UInt64 uLowDateTime { get { return (UInt64)LowDateTime;  } }
+        public UInt64 uHighDateTime { get { return (UInt64)HighDateTime; } }
         public Int64 LowDateTime { get; set; }
         public Int64 HighDateTime { get; set; }
     }

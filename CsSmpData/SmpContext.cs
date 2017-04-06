@@ -12,7 +12,6 @@ namespace CsSmpData
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-
         }
     }
 }
